@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d3tqnuhapkkoq" path="res://platform_2.tscn" id="3_ranjx"]
 [ext_resource type="PackedScene" uid="uid://by8gmcwragvgr" path="res://platform_3.tscn" id="4_o4bbr"]
 [ext_resource type="PackedScene" uid="uid://drkid45i2ujjg" path="res://platform_4.tscn" id="5_dqfu5"]
-[ext_resource type="PackedScene" uid="uid://cd1rp0icf51bd" path="res://platform_5.tscn" id="6_62jen"]
 [ext_resource type="PackedScene" uid="uid://cimr5olmgtxx0" path="res://platform.tscn" id="6_tqfgu"]
+[ext_resource type="PackedScene" uid="uid://tc3nbcajbnkq" path="res://hud.tscn" id="10_yqg2y"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_1gbm8")
@@ -17,7 +17,6 @@ pf_scene = ExtResource("6_tqfgu")
 pf_scene2 = ExtResource("3_ranjx")
 pf_scene3 = ExtResource("4_o4bbr")
 pf_scene4 = ExtResource("5_dqfu5")
-pf_scene5 = ExtResource("6_62jen")
 
 [node name="Background" parent="." instance=ExtResource("1_878dy")]
 offset_left = -570.0
@@ -39,3 +38,7 @@ position = Vector2(225, 469)
 [node name="Character" parent="." instance=ExtResource("1_40b6w")]
 position = Vector2(79, -59)
 slide_on_ceiling = false
+
+[node name="HUD" parent="." instance=ExtResource("10_yqg2y")]
+
+[connection signal="score_up" from="." to="HUD" method="_on_main_score_up"]

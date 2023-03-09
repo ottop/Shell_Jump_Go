@@ -1,10 +1,11 @@
 extends Node
 
+signal score_up
+
 @export var pf_scene: PackedScene
 @export var pf_scene2: PackedScene
 @export var pf_scene3: PackedScene
 @export var pf_scene4: PackedScene
-@export var pf_scene5: PackedScene
 @export var scaling = 0.6
 @export var pos_y_min = 150
 @export var pos_y_max = 350
@@ -31,14 +32,15 @@ func _process(delta):
 			
 			if platforms[-i-1] == $Character.get_last_slide_collision().get_collider():
 				
-				for j in range(platforms.size()-i-1):
+				for j in range(platforms.size()-i):
 					make_platform(false)
 					platforms.remove_at(0)
+					score_up.emit()
 					
 				break
 
 func make_platform(first):
-	var scene = randi_range(0,4)
+	var scene = randi_range(0,3)
 	var pf
 	
 	if scene == 0:
@@ -52,9 +54,6 @@ func make_platform(first):
 	
 	else: if scene == 3:
 		pf = pf_scene4.instantiate()
-	
-	else: if scene == 4:
-		pf = pf_scene5.instantiate()
 	
 	if first == false:
 		pf.position.y=prev_pos.y

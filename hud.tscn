@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://tc3nbcajbnkq"]
+
+[ext_resource type="Script" path="res://hud.gd" id="1_rb1vs"]
+[ext_resource type="Texture2D" uid="uid://xy1b6m8m65kx" path="res://art/scoreblock2.png" id="1_w01i4"]
+[ext_resource type="Texture2D" uid="uid://di2pw4eagbug6" path="res://art/scoreblock.png" id="2_umoo8"]
+[ext_resource type="FontFile" uid="uid://bp3b8yqtffg18" path="res://fonts/Xolonium-Regular.ttf" id="2_vo6tp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6sw2f"]
+font = ExtResource("2_vo6tp")
+font_size = 42
+font_color = Color(0.270588, 0.156863, 0.235294, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_rb1vs")
+
+[node name="ScoreLabel" type="Label" parent="."]
+z_index = 1
+offset_left = 435.0
+offset_right = 600.0
+offset_bottom = 55.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_6sw2f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scoreblock" type="Sprite2D" parent="."]
+position = Vector2(510, 35)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_w01i4")
+
+[node name="Scoreblock2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(285, 33)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_umoo8")
