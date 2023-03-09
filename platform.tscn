@@ -1,16 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cimr5olmgtxx0"]
+[gd_scene load_steps=2 format=3 uid="uid://cimr5olmgtxx0"]
 
 [ext_resource type="Texture2D" uid="uid://eqikyye7mt2f" path="res://art/root9.png" id="1_670j8"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqqtd"]
-size = Vector2(248, 80)
 
 [node name="Platform" type="AnimatableBody2D"]
 
 [node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_670j8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9, 0)
-shape = SubResource("RectangleShape2D_jqqtd")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-2, -11, -26, -11, -27, -17, -63, -18, -63, -11, -69, -12, -69, 6, -57, 6, -57, 18, -21, 18, -20, 13, -9, 13, -9, 18, 2, 18, 2, 23, 33, 23, 33, 19, 38, 19, 39, 13, 63, 12, 64, 6, 70, 7, 70, -17, 63, -18, 63, -23, 4, -23, 3, -18, -2, -18)
 one_way_collision = true

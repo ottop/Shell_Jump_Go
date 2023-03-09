@@ -142,6 +142,8 @@ animations = [{
 }]
 
 [node name="Character" type="CharacterBody2D"]
+top_level = true
+z_index = 2
 script = ExtResource("1_bhhrg")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -160,6 +162,7 @@ limit_bottom = 650
 script = ExtResource("3_m30d8")
 
 [node name="Gun" type="CharacterBody2D" parent="."]
+visibility_layer = 513
 position = Vector2(0.5, 2)
 script = ExtResource("3_7iakr")
 

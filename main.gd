@@ -1,6 +1,10 @@
 extends Node
 
 @export var pf_scene: PackedScene
+@export var pf_scene2: PackedScene
+@export var pf_scene3: PackedScene
+@export var pf_scene4: PackedScene
+@export var pf_scene5: PackedScene
 @export var scaling = 0.6
 @export var pos_y_min = 150
 @export var pos_y_max = 350
@@ -34,8 +38,23 @@ func _process(delta):
 				break
 
 func make_platform(first):
-	var pf = pf_scene.instantiate()
-	pf.scale = Vector2(scaling,scaling)
+	var scene = randi_range(0,4)
+	var pf
+	
+	if scene == 0:
+		pf = pf_scene.instantiate()
+		
+	else: if scene == 1:
+		pf = pf_scene2.instantiate()
+		
+	else: if scene == 2:
+		pf = pf_scene3.instantiate()
+	
+	else: if scene == 3:
+		pf = pf_scene4.instantiate()
+	
+	else: if scene == 4:
+		pf = pf_scene5.instantiate()
 	
 	if first == false:
 		pf.position.y=prev_pos.y
