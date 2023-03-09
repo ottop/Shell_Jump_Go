@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://7uf1sfwpr6sl"]
+
+[ext_resource type="Texture2D" uid="uid://dbbbra2dhpty2" path="res://art/oneside.png" id="1_n8ufs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_47gp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js4kv"]
+size = Vector2(121, 1113.5)
+
+[node name="Wall" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_47gp2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-180, -405)
+scale = Vector2(0.15, 0.219336)
+texture = ExtResource("1_n8ufs")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(542, -373)
+scale = Vector2(0.15, 0.21582)
+texture = ExtResource("1_n8ufs")
+centered = false
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 155)
+shape = SubResource("RectangleShape2D_js4kv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(602, 172)
+shape = SubResource("RectangleShape2D_js4kv")

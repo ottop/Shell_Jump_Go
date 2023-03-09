@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dr0fu7s5s6ch6"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_1gbm8"]
+[ext_resource type="PackedScene" uid="uid://cg81kbles74dx" path="res://character.tscn" id="1_40b6w"]
+[ext_resource type="PackedScene" uid="uid://dl08euttbyr3b" path="res://background.tscn" id="1_878dy"]
+[ext_resource type="PackedScene" uid="uid://dagkvcyked7kc" path="res://ground.tscn" id="2_jmtls"]
+[ext_resource type="PackedScene" uid="uid://7uf1sfwpr6sl" path="res://wall.tscn" id="3_gv5en"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_1gbm8")
+
+[node name="Background" parent="." instance=ExtResource("1_878dy")]
+offset_left = -570.0
+offset_top = -1111.0
+offset_right = 8805.0
+offset_bottom = 8248.0
+expand_mode = 2
+
+[node name="Wall" parent="." instance=ExtResource("3_gv5en")]
+position = Vector2(-65, -48)
+
+[node name="Ground" parent="." instance=ExtResource("2_jmtls")]
+position = Vector2(-226, -643)
+scale = Vector2(2, 2)
+
+[node name="Character" parent="." instance=ExtResource("1_40b6w")]
+position = Vector2(79, -59)
+slide_on_ceiling = false
+
+[node name="Start" type="Marker2D" parent="."]
+position = Vector2(225, 469)
