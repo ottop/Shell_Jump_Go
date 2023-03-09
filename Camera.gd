@@ -1,4 +1,8 @@
 extends Camera2D
 
+signal bottom
+
 func _process(delta):
-	limit_bottom = get_screen_center_position().y + get_viewport_rect().size.y / 2
+	var screenBottom = get_screen_center_position().y + get_viewport_rect().size.y / 2
+	limit_bottom = screenBottom
+	bottom.emit(screenBottom)

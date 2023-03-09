@@ -49,3 +49,9 @@ func _on_gun_shot():
 func start(pos):
 	position = pos
 	show()
+
+
+func _on_camera_2d_bottom(bottom):
+	if global_transform.origin.y > bottom:
+		print("dead")
+		get_tree().quit()

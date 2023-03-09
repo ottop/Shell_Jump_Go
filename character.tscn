@@ -178,4 +178,5 @@ script = ExtResource("35_dielu")
 [connection signal="turned" from="." to="Gun" method="_on_character_turned"]
 [connection signal="turned" from="." to="Gun/Sprite/Explosion" method="_on_character_turned"]
 [connection signal="validshot" from="." to="Gun/Sprite/Explosion" method="_on_character_validshot"]
+[connection signal="bottom" from="Camera2D" to="." method="_on_camera_2d_bottom"]
 [connection signal="shot" from="Gun" to="." method="_on_gun_shot"]
