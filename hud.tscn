@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://tc3nbcajbnkq"]
+[gd_scene load_steps=7 format=3 uid="uid://tc3nbcajbnkq"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_rb1vs"]
 [ext_resource type="Texture2D" uid="uid://xy1b6m8m65kx" path="res://art/scoreblock2.png" id="1_w01i4"]
 [ext_resource type="Texture2D" uid="uid://di2pw4eagbug6" path="res://art/scoreblock.png" id="2_umoo8"]
 [ext_resource type="FontFile" uid="uid://bp3b8yqtffg18" path="res://fonts/Xolonium-Regular.ttf" id="2_vo6tp"]
+[ext_resource type="Texture2D" uid="uid://dpgvgvqr5ccw0" path="res://art/pause.png" id="5_2ayeh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6sw2f"]
 font = ExtResource("2_vo6tp")
@@ -36,3 +37,12 @@ visible = false
 position = Vector2(285, 33)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_umoo8")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 7.0
+offset_top = 5.0
+offset_right = 205.0
+offset_bottom = 283.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("5_2ayeh")
+flat = true

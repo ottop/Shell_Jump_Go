@@ -3,8 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://dgbgo16ug0j6d" path="res://art/repeatedbg.png" id="1_02xjt"]
 
 [node name="Background" type="TextureRect"]
-offset_top = -242.48
-offset_right = 2560.0
-offset_bottom = 4877.52
-scale = Vector2(0.188, 0.188)
+anchors_preset = -1
+offset_left = -35.0
+offset_top = -19.0
+offset_right = 2525.0
+offset_bottom = 5101.0
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_02xjt")

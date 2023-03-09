@@ -15,6 +15,7 @@ signal score_up
 
 var prev_pos
 var platforms = []
+var prev_height = 0
 
 func _ready():
 	$Character.start($Start.position)
@@ -25,7 +26,10 @@ func _ready():
 		make_platform(false)
 	
 func _process(delta):
-
+	if ($Character.position.y < prev_height):
+		prev_height = $Character.position.y
+		$Wall.position.y = prev_height
+		$Background.position.y = prev_height - 500
 	if $Character.get_last_slide_collision() != null:
 		
 		for i in range(platforms.size()):			
