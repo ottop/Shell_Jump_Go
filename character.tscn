@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://cg81kbles74dx"]
+[gd_scene load_steps=39 format=3 uid="uid://cg81kbles74dx"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_bhhrg"]
 [ext_resource type="Texture2D" uid="uid://3licxpfifqb4" path="res://art/sprite.png" id="1_vj7j7"]
 [ext_resource type="Texture2D" uid="uid://devan76154aie" path="res://art/shotgun.png" id="3_0jm4b"]
 [ext_resource type="Script" path="res://Gun.gd" id="3_7iakr"]
+[ext_resource type="Script" path="res://Camera.gd" id="3_m30d8"]
 [ext_resource type="Texture2D" uid="uid://t68u58saniet" path="res://art/shotgunanimation/shotgunanimation_1.png" id="5_oem0j"]
 [ext_resource type="Texture2D" uid="uid://krybygpwsfj7" path="res://art/shotgunanimation/shotgunanimation_2.png" id="6_2c76r"]
 [ext_resource type="Texture2D" uid="uid://bqjqt018e4c21" path="res://art/shotgunanimation/shotgunanimation_3.png" id="7_d7rc4"]
@@ -157,6 +158,7 @@ anchor_mode = 0
 limit_left = 195
 limit_right = 531
 limit_bottom = 650
+script = ExtResource("3_m30d8")
 
 [node name="Gun" type="CharacterBody2D" parent="."]
 position = Vector2(0.5, 2)

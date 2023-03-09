@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr0fu7s5s6ch6"]
+[gd_scene load_steps=7 format=3 uid="uid://dr0fu7s5s6ch6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1gbm8"]
 [ext_resource type="PackedScene" uid="uid://cg81kbles74dx" path="res://character.tscn" id="1_40b6w"]
 [ext_resource type="PackedScene" uid="uid://dl08euttbyr3b" path="res://background.tscn" id="1_878dy"]
 [ext_resource type="PackedScene" uid="uid://dagkvcyked7kc" path="res://ground.tscn" id="2_jmtls"]
 [ext_resource type="PackedScene" uid="uid://7uf1sfwpr6sl" path="res://wall.tscn" id="3_gv5en"]
+[ext_resource type="PackedScene" uid="uid://cimr5olmgtxx0" path="res://platform.tscn" id="6_tqfgu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_1gbm8")
@@ -29,3 +30,19 @@ slide_on_ceiling = false
 
 [node name="Start" type="Marker2D" parent="."]
 position = Vector2(225, 469)
+
+[node name="Platform" parent="." instance=ExtResource("6_tqfgu")]
+position = Vector2(231, 435)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform2" parent="." instance=ExtResource("6_tqfgu")]
+position = Vector2(335, 193)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform3" parent="." instance=ExtResource("6_tqfgu")]
+position = Vector2(231, -74)
+scale = Vector2(0.6, 0.6)
+
+[node name="Platform4" parent="." instance=ExtResource("6_tqfgu")]
+position = Vector2(316, -379)
+scale = Vector2(0.6, 0.6)
