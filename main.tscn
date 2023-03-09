@@ -9,6 +9,7 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_1gbm8")
+pf_scene = ExtResource("6_tqfgu")
 
 [node name="Background" parent="." instance=ExtResource("1_878dy")]
 offset_left = -570.0
@@ -24,25 +25,9 @@ position = Vector2(-65, -48)
 position = Vector2(-226, -643)
 scale = Vector2(2, 2)
 
-[node name="Character" parent="." instance=ExtResource("1_40b6w")]
-position = Vector2(79, -59)
-slide_on_ceiling = false
-
 [node name="Start" type="Marker2D" parent="."]
 position = Vector2(225, 469)
 
-[node name="Platform" parent="." instance=ExtResource("6_tqfgu")]
-position = Vector2(231, 435)
-scale = Vector2(0.6, 0.6)
-
-[node name="Platform2" parent="." instance=ExtResource("6_tqfgu")]
-position = Vector2(335, 193)
-scale = Vector2(0.6, 0.6)
-
-[node name="Platform3" parent="." instance=ExtResource("6_tqfgu")]
-position = Vector2(231, -74)
-scale = Vector2(0.6, 0.6)
-
-[node name="Platform4" parent="." instance=ExtResource("6_tqfgu")]
-position = Vector2(316, -379)
-scale = Vector2(0.6, 0.6)
+[node name="Character" parent="." instance=ExtResource("1_40b6w")]
+position = Vector2(79, -59)
+slide_on_ceiling = false
