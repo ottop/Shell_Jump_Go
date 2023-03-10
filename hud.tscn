@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://tc3nbcajbnkq"]
+[gd_scene load_steps=14 format=3 uid="uid://tc3nbcajbnkq"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_rb1vs"]
 [ext_resource type="Texture2D" uid="uid://xy1b6m8m65kx" path="res://art/scoreblock2.png" id="1_w01i4"]
@@ -16,10 +16,28 @@ font_color = Color(0.270588, 0.156863, 0.235294, 1)
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aoy8t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etmjq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2yfa6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tc1sw"]
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_rb1vs")
 
+[node name="pausebg" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
 [node name="ScoreLabel" type="Label" parent="."]
+visible = false
 z_index = 1
 offset_left = 435.0
 offset_right = 600.0
@@ -31,6 +49,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Scoreblock" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(510, 35)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_w01i4")
@@ -42,13 +61,25 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_umoo8")
 
 [node name="Pause" type="Button" parent="."]
-offset_left = 7.0
-offset_top = 5.0
-offset_right = 205.0
-offset_bottom = 283.0
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -293.0
+offset_top = -442.0
+offset_right = -95.0
+offset_bottom = -164.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.2, 0.2)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.52549, 1, 0.894118, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aoy8t")
 icon = ExtResource("5_2ayeh")
 flat = true
+icon_alignment = 1
 
 [node name="Gameover" type="Sprite2D" parent="."]
 visible = false
@@ -57,23 +88,60 @@ texture = ExtResource("6_m8yd5")
 
 [node name="Restart" type="Button" parent="."]
 visible = false
-offset_left = 171.0
-offset_top = 494.0
-offset_right = 649.0
-offset_bottom = 712.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 59.0
+offset_right = 350.0
+offset_bottom = 277.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.52549, 1, 0.894118, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_etmjq")
 icon = ExtResource("7_6npok")
 flat = true
 
 [node name="Quit" type="Button" parent="."]
+process_mode = 3
 visible = false
 offset_left = 174.0
 offset_top = 638.0
 offset_right = 652.0
 offset_bottom = 856.0
 scale = Vector2(0.5, 0.5)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.52549, 1, 0.894118, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2yfa6")
 icon = ExtResource("8_2nh0r")
 flat = true
 
+[node name="Continue" type="Button" parent="."]
+process_mode = 3
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = 61.0
+offset_right = 348.0
+offset_bottom = 279.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_colors/icon_hover_color = Color(0.52549, 1, 0.894118, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tc1sw")
+icon = ExtResource("7_6npok")
+flat = true
+
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]

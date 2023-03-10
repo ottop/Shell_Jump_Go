@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dr0fu7s5s6ch6"]
+[gd_scene load_steps=13 format=3 uid="uid://dr0fu7s5s6ch6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1gbm8"]
 [ext_resource type="PackedScene" uid="uid://cg81kbles74dx" path="res://character.tscn" id="1_40b6w"]
@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://by8gmcwragvgr" path="res://platform_3.tscn" id="4_o4bbr"]
 [ext_resource type="PackedScene" uid="uid://drkid45i2ujjg" path="res://platform_4.tscn" id="5_dqfu5"]
 [ext_resource type="PackedScene" uid="uid://cimr5olmgtxx0" path="res://platform.tscn" id="6_tqfgu"]
+[ext_resource type="PackedScene" uid="uid://bj6sahlewiep1" path="res://start_platform.tscn" id="10_nioyg"]
 [ext_resource type="PackedScene" uid="uid://tc3nbcajbnkq" path="res://hud.tscn" id="10_yqg2y"]
+[ext_resource type="Texture2D" uid="uid://whw40jau3li" path="res://art/logo.png" id="12_yup55"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_1gbm8")
@@ -42,7 +44,19 @@ scale = Vector2(2, 2)
 [node name="Start" type="Marker2D" parent="."]
 position = Vector2(225, 469)
 
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(230, 29)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("12_yup55")
+
+[node name="StartPlatform" parent="." instance=ExtResource("10_nioyg")]
+visible = false
+position = Vector2(227, 298)
+scale = Vector2(0.8, 0.8)
+
 [node name="HUD" parent="." instance=ExtResource("10_yqg2y")]
 
 [connection signal="score_up" from="." to="HUD" method="_on_main_score_up"]
+[connection signal="pause" from="HUD" to="." method="_on_hud_pause"]
 [connection signal="restart" from="HUD" to="." method="new_game"]
+[connection signal="resume" from="HUD" to="." method="_on_hud_resume"]

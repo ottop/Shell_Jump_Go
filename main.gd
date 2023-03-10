@@ -15,10 +15,14 @@ signal score_up
 @export var pos_x_min = 44
 @export var pos_x_max = 403
 @export var start_y_minus = 300
+@export var bg_offset = 500
+@export var start_platforms = 10
 
 var prev_pos
 var platforms = []
 var prev_height = 0
+var started = false
+
 var char
 var wall
 var bg
@@ -28,11 +32,13 @@ func _ready():
 	
 func _process(delta):
 	if (char != null):
+		
 		if (char.position.y < prev_height):
 			prev_height = char.position.y
 			wall.position.y = prev_height
-			bg.position.y = prev_height - 500
-		if char.get_last_slide_collision() != null:
+			bg.position.y = prev_height - bg_offset
+			
+		if started == true and char.get_last_slide_collision() != null:
 			
 			for i in range(platforms.size()):			
 				
@@ -44,6 +50,16 @@ func _process(delta):
 						score_up.emit()
 						
 					break
+		else: if char.get_last_slide_collision() != null:
+			if $StartPlatform == char.get_last_slide_collision().get_collider():
+				$Logo.queue_free()
+				for x in range(start_platforms):
+					make_platform(false)
+				$HUD/Pause.show()
+				$HUD/Scoreblock.show()
+				$HUD/ScoreLabel.show()
+				started = true
+				
 
 func make_platform(first):
 	var scene = randi_range(0,3)
@@ -85,23 +101,25 @@ func new_game():
 	char = char_scene.instantiate()
 	add_child(char)
 	char.dead.connect(_on_character_dead)
-	$HUD/Gameover.hide()
-	$HUD/Restart.hide()
-	$HUD/Quit.hide()
-	$Character.show()
-	wall.show()
 	$Ground.show()
-	$HUD/Pause.show()
+	$HUD/pausebg.hide()
 	char.start($Start.position)
+	if started == true:
+		make_platform(true)
+		for x in range(start_platforms):
+			make_platform(false)
+	else:
+		$StartPlatform.show()
+		prev_pos = $StartPlatform.position
+		platforms.append($StartPlatform)
 	
-	make_platform(true)
 	
-	for x in range(10):
-		make_platform(false)
 
 func _on_character_dead():
 	
 	get_tree().call_group("pfs", "queue_free")
+	
+	$HUD/pausebg.show()
 	$HUD/Gameover.show()
 	$HUD/Restart.show()
 	$HUD/Quit.show()
@@ -114,5 +132,17 @@ func _on_character_dead():
 	prev_pos = null
 	char.queue_free()
 	
+func _on_hud_pause():
+	get_tree().paused = true
+	$HUD/Pause.hide()
+	$HUD/pausebg.show()
+	$HUD/Continue.show()
+	$HUD/Quit.show()
 
-	
+
+func _on_hud_resume():
+	$HUD/Continue.hide()
+	$HUD/Quit.hide()
+	$HUD/pausebg.hide()
+	$HUD/Pause.show()
+	get_tree().paused = false

@@ -12,7 +12,6 @@ signal dead
 @export var max_jumps = 2
 @export var jumps = max_jumps
 
-var fallen = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
@@ -53,6 +52,5 @@ func start(pos):
 	show()
 
 func _on_camera_2d_bottom(bottom):
-	if global_transform.origin.y > bottom and fallen == false:
+	if global_transform.origin.y > bottom:
 		dead.emit()
-		fallen = true
