@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dr0fu7s5s6ch6"]
+[gd_scene load_steps=15 format=3 uid="uid://dr0fu7s5s6ch6"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_1gbm8"]
 [ext_resource type="PackedScene" uid="uid://cg81kbles74dx" path="res://character.tscn" id="1_40b6w"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bj6sahlewiep1" path="res://start_platform.tscn" id="10_nioyg"]
 [ext_resource type="PackedScene" uid="uid://tc3nbcajbnkq" path="res://hud.tscn" id="10_yqg2y"]
 [ext_resource type="Texture2D" uid="uid://whw40jau3li" path="res://art/logo.png" id="12_yup55"]
+[ext_resource type="AudioStream" uid="uid://blb0acrtorwdn" path="res://sound/sound.wav" id="13_icsaw"]
+[ext_resource type="AudioStream" uid="uid://s5mij4c0yukx" path="res://sound/loss.wav" id="14_ppnle"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_1gbm8")
@@ -55,6 +57,14 @@ position = Vector2(227, 298)
 scale = Vector2(0.8, 0.8)
 
 [node name="HUD" parent="." instance=ExtResource("10_yqg2y")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("13_icsaw")
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_ppnle")
+volume_db = 7.0
 
 [connection signal="score_up" from="." to="HUD" method="_on_main_score_up"]
 [connection signal="pause" from="HUD" to="." method="_on_hud_pause"]

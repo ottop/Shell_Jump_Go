@@ -6,7 +6,8 @@ var screenBottom = 0
 func _input(event):
 	rotation -= -get_angle_to(get_global_mouse_position())
 	
-	if event is InputEventMouseButton and (get_global_mouse_position().y > screenBottom-830 or get_global_mouse_position().x > -20):
+	if Input.is_action_just_pressed("click") and (get_global_mouse_position().y > screenBottom-830 or get_global_mouse_position().x > -20):
+		
 		shot.emit()
 
 

@@ -103,7 +103,9 @@ func new_game():
 	char.dead.connect(_on_character_dead)
 	$Ground.show()
 	$HUD/pausebg.hide()
+	$HUD/Pause.show()
 	char.start($Start.position)
+	$Music.play()
 	if started == true:
 		make_platform(true)
 		for x in range(start_platforms):
@@ -118,7 +120,6 @@ func new_game():
 func _on_character_dead():
 	
 	get_tree().call_group("pfs", "queue_free")
-	
 	$HUD/pausebg.show()
 	$HUD/Gameover.show()
 	$HUD/Restart.show()
@@ -127,10 +128,12 @@ func _on_character_dead():
 	wall.queue_free()
 	$Ground.hide()
 	$HUD/Pause.hide()
+	$Music.stop()
 	prev_height = 0
 	platforms = []
 	prev_pos = null
 	char.queue_free()
+	$GameOverSound.play()
 	
 func _on_hud_pause():
 	get_tree().paused = true

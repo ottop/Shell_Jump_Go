@@ -11,6 +11,7 @@ signal dead
 @export var speed = 700.0
 @export var max_jumps = 2
 @export var jumps = max_jumps
+@export var stay = true
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -19,8 +20,10 @@ func _physics_process(delta):
 	$Sprite.flip_h = direction < 0
 	turned.emit(direction < 0)
 	
-	if is_on_floor():
+	if is_on_floor() and stay == false:
 		jumps = max_jumps
+		$LandSound.play()
+		stay = true
 		
 	velocity.y += gravity * delta
 	
@@ -30,22 +33,28 @@ func _physics_process(delta):
 	else: 
 		velocity.x = velocity.x * air_slideness
 		
+	
 	move_and_slide()
 
 func _on_gun_shot():
-	if (is_on_floor() or jumps > 0):
-		validshot.emit()
+	
+	if (jumps > 0):
 		
-		velocity.x = $Sprite.global_transform.origin.x - $Sprite.get_global_mouse_position().x
-		velocity.y = $Sprite.global_transform.origin.y - $Sprite.get_global_mouse_position().y
+		var sped = Vector2.ZERO
+		
+		sped.x = $Sprite.global_transform.origin.x - $Sprite.get_global_mouse_position().x
+		sped.y = $Sprite.global_transform.origin.y - $Sprite.get_global_mouse_position().y
 		
 		if jumps < max_jumps:
-			velocity = velocity.normalized() * speed * jump_boost
+			velocity = sped.normalized() * speed * jump_boost
 			
 		else:
-			velocity = velocity.normalized() * speed
-			
+			velocity = sped.normalized() * speed
+		validshot.emit()
+		await get_tree().create_timer(0.015).timeout
 		jumps -= 1
+		stay = false
+	
 
 func start(pos):
 	position = pos

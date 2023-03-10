@@ -1,6 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dagkvcyked7kc"]
+[gd_scene load_steps=9 format=3 uid="uid://dagkvcyked7kc"]
 
 [ext_resource type="Texture2D" uid="uid://bhnnqftn6fkkx" path="res://art/ground.png" id="1_54ep3"]
+[ext_resource type="Texture2D" uid="uid://d3424vo5okmcf" path="res://art/bgroot2.png" id="2_sqtj0"]
+[ext_resource type="Texture2D" uid="uid://vdmn4iaqw54u" path="res://art/bgroot3.png" id="3_m1kh6"]
+[ext_resource type="Texture2D" uid="uid://cnqt3gqb3aq64" path="res://art/bone2.png" id="4_ieae8"]
+[ext_resource type="Texture2D" uid="uid://cknji5h4jtl7e" path="res://art/rock7.png" id="5_albip"]
+[ext_resource type="Texture2D" uid="uid://dc11lke340jo5" path="res://art/trash3.png" id="6_0w634"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yfpqg"]
 rough = true
@@ -21,3 +26,29 @@ texture = ExtResource("1_54ep3")
 position = Vector2(236, 696.25)
 shape = SubResource("RectangleShape2D_xluch")
 one_way_collision_margin = 128.0
+
+[node name="Bgroot2" type="Sprite2D" parent="."]
+position = Vector2(187, 631)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("2_sqtj0")
+
+[node name="Bgroot3" type="Sprite2D" parent="."]
+position = Vector2(342, 633)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_m1kh6")
+
+[node name="Bone2" type="Sprite2D" parent="."]
+position = Vector2(288, 614)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_ieae8")
+
+[node name="Rock7" type="Sprite2D" parent="."]
+position = Vector2(230, 626)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("5_albip")
+
+[node name="Trash3" type="Sprite2D" parent="."]
+position = Vector2(143, 619)
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("6_0w634")
+flip_v = true

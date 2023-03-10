@@ -10,4 +10,6 @@ func _on_character_turned(turned):
 		offset = Vector2.ZERO
 
 func _on_character_validshot():
+	$ExplosionSound.play()
 	play("shoot")
+	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cg81kbles74dx"]
+[gd_scene load_steps=41 format=3 uid="uid://cg81kbles74dx"]
 
 [ext_resource type="Script" path="res://character.gd" id="1_bhhrg"]
 [ext_resource type="Texture2D" uid="uid://3licxpfifqb4" path="res://art/sprite.png" id="1_vj7j7"]
@@ -36,6 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://corvy3nm5rkeg" path="res://art/shotgunanimation/shotgunanimation_29.png" id="33_6j8pi"]
 [ext_resource type="Texture2D" uid="uid://d2g0ahrwk15h5" path="res://art/shotgunanimation/shotgunanimation_30.png" id="34_v3qvj"]
 [ext_resource type="Script" path="res://Explosion.gd" id="35_dielu"]
+[ext_resource type="AudioStream" uid="uid://mh8j4d31kysl" path="res://sound/explosion3-1.wav" id="37_djtvg"]
+[ext_resource type="AudioStream" uid="uid://qdiv8y01uogd" path="res://sound/land.wav" id="38_fhr22"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8b22"]
 size = Vector2(42, 90)
@@ -176,6 +178,18 @@ position = Vector2(200, -9.9)
 sprite_frames = SubResource("SpriteFrames_kbxqd")
 animation = &"shoot"
 script = ExtResource("35_dielu")
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="Gun/Sprite/Explosion"]
+stream = ExtResource("37_djtvg")
+volume_db = -10.0
+
+[node name="ExplosionSound2" type="AudioStreamPlayer" parent="Gun/Sprite/Explosion"]
+stream = ExtResource("37_djtvg")
+volume_db = -21.0
+
+[node name="LandSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("38_fhr22")
+volume_db = -2.0
 
 [connection signal="turned" from="." to="Gun" method="_on_character_turned"]
 [connection signal="turned" from="." to="Gun/Sprite/Explosion" method="_on_character_turned"]
