@@ -183,10 +183,6 @@ script = ExtResource("35_dielu")
 stream = ExtResource("37_djtvg")
 volume_db = -10.0
 
-[node name="ExplosionSound2" type="AudioStreamPlayer" parent="Gun/Sprite/Explosion"]
-stream = ExtResource("37_djtvg")
-volume_db = -21.0
-
 [node name="LandSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("38_fhr22")
 volume_db = -2.0
