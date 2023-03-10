@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://tc3nbcajbnkq"]
+[gd_scene load_steps=15 format=3 uid="uid://tc3nbcajbnkq"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_rb1vs"]
 [ext_resource type="Texture2D" uid="uid://xy1b6m8m65kx" path="res://art/scoreblock2.png" id="1_w01i4"]
 [ext_resource type="Texture2D" uid="uid://di2pw4eagbug6" path="res://art/scoreblock.png" id="2_umoo8"]
 [ext_resource type="FontFile" uid="uid://bp3b8yqtffg18" path="res://fonts/Xolonium-Regular.ttf" id="2_vo6tp"]
 [ext_resource type="Texture2D" uid="uid://dpgvgvqr5ccw0" path="res://art/pause.png" id="5_2ayeh"]
+[ext_resource type="Texture2D" uid="uid://bhbwb3qx4myed" path="res://art/pauseimage.png" id="5_tvhs7"]
 [ext_resource type="Texture2D" uid="uid://dlglb1mpdkk1u" path="res://art/gameover.png" id="6_m8yd5"]
 [ext_resource type="Texture2D" uid="uid://chprlk2q77572" path="res://art/resume.png" id="7_6npok"]
 [ext_resource type="Texture2D" uid="uid://e2qla0yo4sxv" path="res://art/quit.png" id="8_2nh0r"]
@@ -81,9 +82,14 @@ icon = ExtResource("5_2ayeh")
 flat = true
 icon_alignment = 1
 
+[node name="PauseText" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(300, 309)
+texture = ExtResource("5_tvhs7")
+
 [node name="Gameover" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(293, 312)
+position = Vector2(300, 312)
 texture = ExtResource("6_m8yd5")
 
 [node name="Restart" type="Button" parent="."]
@@ -93,10 +99,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -128.0
-offset_top = 59.0
-offset_right = 350.0
-offset_bottom = 277.0
+offset_left = -117.5
+offset_top = 61.0
+offset_right = 360.5
+offset_bottom = 279.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -105,13 +111,15 @@ theme_override_colors/icon_hover_color = Color(0.52549, 1, 0.894118, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_etmjq")
 icon = ExtResource("7_6npok")
 flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="Quit" type="Button" parent="."]
 process_mode = 3
 visible = false
-offset_left = 174.0
+offset_left = 182.5
 offset_top = 638.0
-offset_right = 652.0
+offset_right = 660.5
 offset_bottom = 856.0
 scale = Vector2(0.5, 0.5)
 theme_override_colors/icon_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
@@ -128,10 +136,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -130.0
-offset_top = 61.0
-offset_right = 348.0
-offset_bottom = 279.0
+offset_left = -117.5
+offset_top = 57.0
+offset_right = 360.5
+offset_bottom = 275.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)

@@ -20,10 +20,11 @@ func _physics_process(delta):
 	$Sprite.flip_h = direction < 0
 	turned.emit(direction < 0)
 	
-	if is_on_floor() and stay == false:
+	if is_on_floor():
 		jumps = max_jumps
-		$LandSound.play()
-		stay = true
+		if stay == false:
+			$LandSound.play()
+			stay = true
 		
 	velocity.y += gravity * delta
 	
@@ -53,7 +54,8 @@ func _on_gun_shot():
 		validshot.emit()
 		await get_tree().create_timer(0.015).timeout
 		jumps -= 1
-		stay = false
+		if velocity.y < 0:
+			stay = false
 	
 
 func start(pos):
@@ -63,3 +65,9 @@ func start(pos):
 func _on_camera_2d_bottom(bottom):
 	if global_transform.origin.y > bottom:
 		dead.emit()
+		
+	var platforms = get_tree().get_nodes_in_group("pfs")
+	
+	for i in platforms:
+		if i.position.y > bottom:
+			i.queue_free()

@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://drkid45i2ujjg" path="res://platform_4.tscn" id="5_dqfu5"]
 [ext_resource type="PackedScene" uid="uid://cimr5olmgtxx0" path="res://platform.tscn" id="6_tqfgu"]
 [ext_resource type="PackedScene" uid="uid://bj6sahlewiep1" path="res://start_platform.tscn" id="10_nioyg"]
+[ext_resource type="Texture2D" uid="uid://drjuit6fx7lc7" path="res://art/gologo.png" id="10_w6qgc"]
 [ext_resource type="PackedScene" uid="uid://tc3nbcajbnkq" path="res://hud.tscn" id="10_yqg2y"]
-[ext_resource type="Texture2D" uid="uid://whw40jau3li" path="res://art/logo.png" id="12_yup55"]
 [ext_resource type="AudioStream" uid="uid://blb0acrtorwdn" path="res://sound/sound.wav" id="13_icsaw"]
 [ext_resource type="AudioStream" uid="uid://s5mij4c0yukx" path="res://sound/loss.wav" id="14_ppnle"]
 
@@ -25,6 +25,20 @@ char_scene = ExtResource("1_40b6w")
 wall_scene = ExtResource("3_gv5en")
 bg_scene = ExtResource("1_878dy")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1697.0
+offset_top = -1000.0
+offset_right = 2303.0
+offset_bottom = 3000.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Background" parent="." instance=ExtResource("1_878dy")]
 anchors_preset = 8
 anchor_left = 0.5
@@ -37,7 +51,6 @@ offset_right = 4214.0
 offset_bottom = 4105.7
 grow_horizontal = 2
 grow_vertical = 2
-expand_mode = 2
 
 [node name="Ground" parent="." instance=ExtResource("2_jmtls")]
 position = Vector2(-226, -643)
@@ -47,13 +60,12 @@ scale = Vector2(2, 2)
 position = Vector2(225, 469)
 
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(230, 29)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("12_yup55")
+position = Vector2(225, 45)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("10_w6qgc")
 
 [node name="StartPlatform" parent="." instance=ExtResource("10_nioyg")]
-visible = false
-position = Vector2(227, 298)
+position = Vector2(225, 357)
 scale = Vector2(0.8, 0.8)
 
 [node name="HUD" parent="." instance=ExtResource("10_yqg2y")]

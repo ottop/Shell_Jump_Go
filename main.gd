@@ -10,10 +10,10 @@ signal score_up
 @export var wall_scene: PackedScene
 @export var bg_scene: PackedScene
 @export var scaling = 0.6
-@export var pos_y_min = 150
-@export var pos_y_max = 350
-@export var pos_x_min = 44
-@export var pos_x_max = 403
+@export var pos_y_min = 320
+@export var pos_y_max = 320
+@export var pos_x_min = 76
+@export var pos_x_max = 389
 @export var start_y_minus = 300
 @export var bg_offset = 500
 @export var start_platforms = 10
@@ -103,11 +103,12 @@ func new_game():
 	char.dead.connect(_on_character_dead)
 	$Ground.show()
 	$HUD/pausebg.hide()
-	$HUD/Pause.show()
+	
 	char.start($Start.position)
 	$Music.play()
 	if started == true:
 		make_platform(true)
+		$HUD/Pause.show()
 		for x in range(start_platforms):
 			make_platform(false)
 	else:
@@ -141,9 +142,11 @@ func _on_hud_pause():
 	$HUD/pausebg.show()
 	$HUD/Continue.show()
 	$HUD/Quit.show()
+	$HUD/PauseText.show()
 
 
 func _on_hud_resume():
+	$HUD/PauseText.hide()
 	$HUD/Continue.hide()
 	$HUD/Quit.hide()
 	$HUD/pausebg.hide()

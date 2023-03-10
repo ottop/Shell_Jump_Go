@@ -1,12 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dl08euttbyr3b"]
+[gd_scene format=3 uid="uid://dl08euttbyr3b"]
 
-[ext_resource type="Texture2D" uid="uid://dgbgo16ug0j6d" path="res://art/repeatedbg.png" id="1_02xjt"]
-
-[node name="Background" type="TextureRect"]
+[node name="Background" type="ColorRect"]
 z_index = -1
 offset_left = -35.0
 offset_top = -19.0
 offset_right = 2525.0
 offset_bottom = 5101.0
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_02xjt")
+color = Color(0.192157, 0.0862745, 0.0352941, 1)
