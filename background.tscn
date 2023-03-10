@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dgbgo16ug0j6d" path="res://art/repeatedbg.png" id="1_02xjt"]
 
 [node name="Background" type="TextureRect"]
-anchors_preset = -1
+z_index = -1
 offset_left = -35.0
 offset_top = -19.0
 offset_right = 2525.0

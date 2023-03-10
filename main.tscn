@@ -17,6 +17,9 @@ pf_scene = ExtResource("6_tqfgu")
 pf_scene2 = ExtResource("3_ranjx")
 pf_scene3 = ExtResource("4_o4bbr")
 pf_scene4 = ExtResource("5_dqfu5")
+char_scene = ExtResource("1_40b6w")
+wall_scene = ExtResource("3_gv5en")
+bg_scene = ExtResource("1_878dy")
 
 [node name="Background" parent="." instance=ExtResource("1_878dy")]
 anchors_preset = 8
@@ -32,9 +35,6 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 2
 
-[node name="Wall" parent="." instance=ExtResource("3_gv5en")]
-position = Vector2(-65, -48)
-
 [node name="Ground" parent="." instance=ExtResource("2_jmtls")]
 position = Vector2(-226, -643)
 scale = Vector2(2, 2)
@@ -42,10 +42,7 @@ scale = Vector2(2, 2)
 [node name="Start" type="Marker2D" parent="."]
 position = Vector2(225, 469)
 
-[node name="Character" parent="." instance=ExtResource("1_40b6w")]
-position = Vector2(79, -59)
-slide_on_ceiling = false
-
 [node name="HUD" parent="." instance=ExtResource("10_yqg2y")]
 
 [connection signal="score_up" from="." to="HUD" method="_on_main_score_up"]
+[connection signal="restart" from="HUD" to="." method="new_game"]

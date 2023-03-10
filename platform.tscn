@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://eqikyye7mt2f" path="res://art/root9.png" id="1_670j8"]
 
-[node name="Platform" type="AnimatableBody2D"]
+[node name="Platform" type="AnimatableBody2D" groups=["pfs"]]
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.6, 0.6)

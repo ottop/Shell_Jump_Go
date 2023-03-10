@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal turned
 signal validshot
+signal dead
 
 @export var floor_slideness = 0.7
 @export var air_slideness = 1
@@ -11,6 +12,7 @@ signal validshot
 @export var max_jumps = 2
 @export var jumps = max_jumps
 
+var fallen = false
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
@@ -51,6 +53,6 @@ func start(pos):
 	show()
 
 func _on_camera_2d_bottom(bottom):
-	if global_transform.origin.y > bottom:
-		print("dead")
-		get_tree().quit()
+	if global_transform.origin.y > bottom and fallen == false:
+		dead.emit()
+		fallen = true

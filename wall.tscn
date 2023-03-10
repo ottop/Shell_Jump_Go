@@ -9,6 +9,7 @@ size = Vector2(121, 1429)
 
 [node name="Wall" type="StaticBody2D"]
 z_index = 1
+position = Vector2(-64, 15)
 physics_material_override = SubResource("PhysicsMaterial_47gp2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
