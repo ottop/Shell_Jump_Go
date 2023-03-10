@@ -4,9 +4,12 @@ signal restart
 signal pause
 signal resume
 
+@export var score_increment = 1
+
 var score = 0
+
 func _on_main_score_up():
-	score += 1
+	score += score_increment
 	$ScoreLabel.text = str(score)
 
 

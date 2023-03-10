@@ -9,13 +9,15 @@ signal score_up
 @export var char_scene: PackedScene
 @export var wall_scene: PackedScene
 @export var bg_scene: PackedScene
+
 @export var scaling = 0.6
-@export var pos_y_min = 320
+@export var pos_y_min = 260
 @export var pos_y_max = 320
 @export var pos_x_min = 76
 @export var pos_x_max = 389
 @export var start_y_minus = 300
 @export var bg_offset = 500
+
 @export var start_platforms = 10
 
 var prev_pos
