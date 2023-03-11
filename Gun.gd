@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal shot
 var screenBottom = 0
 
-@export var mouse_deadzone_y = -830
+@export var mouse_deadzone_y = 830
 @export var mouse_deadzone_x = -20
 
 

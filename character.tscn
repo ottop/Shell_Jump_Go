@@ -144,8 +144,9 @@ animations = [{
 }]
 
 [node name="Character" type="CharacterBody2D"]
-top_level = true
 z_index = 2
+slide_on_ceiling = false
+safe_margin = 0.01
 script = ExtResource("1_bhhrg")
 
 [node name="Sprite" type="Sprite2D" parent="."]
