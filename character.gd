@@ -18,7 +18,7 @@ signal dead
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
-	$Label.text = str(jumps)
+	print(get_global_mouse_position())
 	var direction = sign(get_global_mouse_position().x - $Sprite.global_position.x)
 	$Sprite.flip_h = direction < 0
 	turned.emit(direction < 0)
@@ -50,9 +50,10 @@ func _on_gun_shot():
 			
 		else:
 			velocity = sped.normalized() * speed
-			
-		validshot.emit()
+		move_and_slide()
 		await get_tree().create_timer(jump_reduction_timer).timeout
+		validshot.emit()
+		
 		jumps -= 1
 		
 		if velocity.y < 0:

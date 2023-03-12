@@ -5,7 +5,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_47gp2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_js4kv"]
-size = Vector2(121, 1429)
+size = Vector2(123.5, 2427.5)
 
 [node name="Wall" type="StaticBody2D"]
 z_index = 1
@@ -13,22 +13,22 @@ position = Vector2(225, 338)
 physics_material_override = SubResource("PhysicsMaterial_47gp2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-469, -721)
-scale = Vector2(0.15, 0.279)
+position = Vector2(-469, -1719)
+scale = Vector2(0.15, 2)
 texture = ExtResource("1_n8ufs")
 centered = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(250, -721)
-scale = Vector2(0.15, 0.279)
+position = Vector2(250, -1719)
+scale = Vector2(0.154, 2)
 texture = ExtResource("1_n8ufs")
 centered = false
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-299, -6.49982)
+position = Vector2(-300, -505)
 shape = SubResource("RectangleShape2D_js4kv")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(313, -5.99982)
+position = Vector2(311.704, -505.25)
 shape = SubResource("RectangleShape2D_js4kv")

@@ -13,13 +13,18 @@ signal score_up
 @export var scaling = 0.6
 @export var pos_y_min = 260
 @export var pos_y_max = 320
-@export var pos_x_min = 76
-@export var pos_x_max = 389
+@export var pos_x_min = 30
+@export var pos_x_max = 430
 @export var start_y_minus = 300
-@export var bg_offset = 500
+@export var bg_offset = 1800
+@export var bg_x_offset = -100
 @export var start_timer = 0.015
 
 @export var start_platforms = 10
+
+@export var mobile_scale_char = 1.35
+@export var mobile_scale_pf = 1.25
+@export var mobile_scale_wall = 1.18
 
 var prev_pos
 var platforms = []
@@ -31,9 +36,14 @@ var wall
 var bg
 
 func _ready():
+	#For Android:
+	pos_y_min = pos_y_min * 1.17
+	pos_y_max = pos_y_max * 1.02
+	
 	new_game()
 	
 func _process(delta):
+	
 	if (char != null):
 		
 		if (char.position.y < prev_height):
@@ -90,6 +100,9 @@ func make_platform(first):
 	
 	pf.position.x += randf_range(pos_x_min,pos_x_max)
 	
+	# For Android build
+	pf.scale = Vector2(mobile_scale_pf,mobile_scale_pf)
+	
 	add_child(pf)
 	
 	prev_pos = pf.position
@@ -99,10 +112,19 @@ func make_platform(first):
 func new_game():
 	await get_tree().create_timer(start_timer).timeout
 	bg = bg_scene.instantiate()
+	bg.position.x += bg_x_offset
 	add_child(bg)
 	wall = wall_scene.instantiate()
+	
+	#For Android
+	wall.scale = Vector2(mobile_scale_wall,mobile_scale_wall)
+	
 	add_child(wall)
 	char = char_scene.instantiate()
+	
+	# For Android
+	char.scale = Vector2(mobile_scale_char,mobile_scale_char)
+	
 	add_child(char)
 	char.dead.connect(_on_character_dead)
 	$Ground.show()

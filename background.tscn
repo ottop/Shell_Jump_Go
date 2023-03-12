@@ -3,8 +3,8 @@
 [node name="Background" type="ColorRect"]
 z_index = -1
 offset_left = -35.0
-offset_top = -19.0
+offset_top = -1798.0
 offset_right = 2525.0
-offset_bottom = 5101.0
+offset_bottom = 9252.0
 scale = Vector2(0.3, 0.3)
 color = Color(0.192157, 0.0862745, 0.0352941, 1)
