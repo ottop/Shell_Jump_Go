@@ -17,6 +17,7 @@ signal score_up
 @export var pos_x_max = 389
 @export var start_y_minus = 300
 @export var bg_offset = 500
+@export var start_timer = 0.015
 
 @export var start_platforms = 10
 
@@ -96,6 +97,7 @@ func make_platform(first):
 	platforms.append(pf)
 
 func new_game():
+	await get_tree().create_timer(start_timer).timeout
 	bg = bg_scene.instantiate()
 	add_child(bg)
 	wall = wall_scene.instantiate()
@@ -121,7 +123,7 @@ func new_game():
 	
 
 func _on_character_dead():
-	
+	char.queue_free()
 	get_tree().call_group("pfs", "queue_free")
 	$HUD/pausebg.show()
 	$HUD/Gameover.show()
@@ -135,7 +137,6 @@ func _on_character_dead():
 	prev_height = 0
 	platforms = []
 	prev_pos = null
-	char.queue_free()
 	$GameOverSound.play()
 	
 func _on_hud_pause():
@@ -153,4 +154,5 @@ func _on_hud_resume():
 	$HUD/Quit.hide()
 	$HUD/pausebg.hide()
 	$HUD/Pause.show()
+	await get_tree().create_timer(start_timer).timeout
 	get_tree().paused = false

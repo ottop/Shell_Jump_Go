@@ -188,10 +188,6 @@ volume_db = -10.0
 stream = ExtResource("38_fhr22")
 volume_db = -2.0
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-
 [connection signal="turned" from="." to="Gun" method="_on_character_turned"]
 [connection signal="turned" from="." to="Gun/Sprite/Explosion" method="_on_character_turned"]
 [connection signal="validshot" from="." to="Gun/Sprite/Explosion" method="_on_character_validshot"]
