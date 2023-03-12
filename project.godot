@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Shell Jump Go"
+config/description="Shell Jump Go game"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 boot_splash/bg_color=Color(0.192157, 0.0862745, 0.0352941, 1)
 boot_splash/image="res://art/bootsplash.png"
 boot_splash/use_filter=false
-config/icon="res://icon.svg"
+config/icon="res://art/gologo.png"
 boot_splash/minimum_display_time=1200
 
 [display]
@@ -24,7 +25,9 @@ boot_splash/minimum_display_time=1200
 window/size/viewport_width=600
 window/size/viewport_height=894
 window/size/initial_screen=1
+window/handheld/orientation=1
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
 window/image="res://art/gologo.png"
 
 [dotnet]
@@ -51,3 +54,4 @@ click={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
