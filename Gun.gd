@@ -10,7 +10,12 @@ var screenBottom = 0
 func _input(event):
 	rotation -= -get_angle_to(get_global_mouse_position())
 	
-	if Input.is_action_just_pressed("click") and (get_global_mouse_position().y > screenBottom-mouse_deadzone_y or get_global_mouse_position().x > mouse_deadzone_x):
+	#Desktop
+	#if Input.is_action_just_pressed("click") and (get_global_mouse_position().y > screenBottom-mouse_deadzone_y or get_global_mouse_position().x > mouse_deadzone_x):
+	
+	#Android
+	if event is InputEventScreenTouch and (get_global_mouse_position().y > screenBottom-mouse_deadzone_y or get_global_mouse_position().x > mouse_deadzone_x):
+		
 		shot.emit()
 
 
